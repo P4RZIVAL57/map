@@ -1,0 +1,26 @@
+name: Descargar archivo desde Drive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 15 * * *'  # Se ejecuta diario a las 10 15 AM (opcional)
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repo
+        uses: actions/checkout@v3
+
+      - name: Descargar archivo de Google Drive
+        run: |
+          wget -O carpeta_destino/archivo.ext "https://drive.google.com/uc?export=download&id=1rlNGdGDr0IPlqEL1LnX9cmVL06lDqyeN"
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Archivo actualizado desde Drive"
+          git push
