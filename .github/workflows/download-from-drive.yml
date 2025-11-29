@@ -15,7 +15,7 @@ jobs:
 
       - name: Descargar archivo de Google Drive
         run: |
-          wget -O carpeta_destino/archivo.ext "https://drive.google.com/uc?export=download&id=1rlNGdGDr0IPlqEL1LnX9cmVL06lDqyeN"
+          wget -O archivo.ext "https://drive.google.com/uc?export=download&id=1rlNGdGDr0IPlqEL1LnX9cmVL06lDqyeN"
 
       - name: Commit & Push
         run: |
